@@ -199,7 +199,7 @@ $tablist.addEventListener("keydown", function (event) {
       return actor.send({ type: "SHOW", slideNumber: 1 });
     }
     case "End": {
-      return actor.send({ type: "SHOW", slideNumber: 4 });
+      return actor.send({ type: "SHOW", slideNumber: TOTAL_SLIDES });
     }
   }
 });
