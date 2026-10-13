@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carousel</title>
+    <link rel="stylesheet" href="./app.css" />
+    <script type="module" src="./main.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <section
+        id="carousel"
+        aria-label="Fruits"
+        aria-roledescription="carousel"
+        class="carousel"
+        data-stopped="true"
+        data-current="1"
+      >
+        <button
+          id="stop-button"
+          aria-label="Stop automatic slide show"
+          class="carousel__stop-button"
+        >
+          <svg
+            id="icon-pause"
+            aria-hidden="true"
+            height="24"
+            width="24"
+            viewBox="-100 -100 200 200"
+          >
+            <line
+              stroke="black"
+              stroke-width="30"
+              stroke-linecap="round"
+              x1="-30"
+              y1="-60"
+              x2="-30"
+              y2="60"
+            />
+            <line
+              stroke="black"
+              stroke-width="30"
+              stroke-linecap="round"
+              x1="30"
+              y1="-60"
+              x2="30"
+              y2="60"
+            />
+          </svg>
+
+          <svg
+            id="icon-play"
+            aria-hidden="true"
+            height="24"
+            width="24"
+            viewBox="-100 -100 200 200"
+          >
+            <polygon
+              stroke="black"
+              stroke-width="10"
+              stroke-linejoin="round"
+              points="-60 -60 -60 60 60 0"
+            />
+          </svg>
+        </button>
+
+        <div id="tablist" role="tablist" aria-label="Slides" class="tablist">
+          <button
+            id="tab-1"
+            role="tab"
+            aria-label="Slide 1"
+            aria-selected="true"
+            aria-controls="tabpanel-1"
+            class="tablist__tab"
+          >
+            1
+          </button>
+          <button
+            id="tab-2"
+            role="tab"
+            aria-label="Slide 2"
+            aria-selected="false"
+            aria-controls="tabpanel-2"
+            tabindex="-1"
+            class="tablist__tab"
+          >
+            2
+          </button>
+          <button
+            id="tab-3"
+            role="tab"
+            aria-label="Slide 3"
+            aria-selected="false"
+            aria-controls="tabpanel-3"
+            tabindex="-1"
+            class="tablist__tab"
+          >
+            3
+          </button>
+          <button
+            id="tab-4"
+            role="tab"
+            aria-label="Slide 4"
+            aria-selected="false"
+            aria-controls="tabpanel-4"
+            tabindex="-1"
+            class="tablist__tab"
+          >
+            4
+          </button>
+        </div>
+
+        <div class="slides-container">
+          <div id="slides" aria-live="off" class="slides">
+            <div
+              id="tabpanel-1"
+              role="tabpanel"
+              aria-roledescription="slide"
+              aria-label="1 of 4"
+              aria-hidden="false"
+              class="slide"
+            >
+              <img
+                src="./images/fruit-apple.jpg"
+                alt="Apple"
+                height="240"
+                width="240"
+                class="slide__image"
+              />
+            </div>
+
+            <div
+              id="tabpanel-2"
+              role="tabpanel"
+              aria-roledescription="slide"
+              aria-label="2 of 4"
+              aria-hidden="true"
+              class="slide"
+            >
+              <img
+                src="./images/fruit-mango.jpg"
+                alt="Mango"
+                height="240"
+                width="240"
+                class="slide__image"
+              />
+            </div>
+
+            <div
+              id="tabpanel-3"
+              role="tabpanel"
+              aria-roledescription="slide"
+              aria-label="3 of 4"
+              aria-hidden="true"
+              class="slide"
+            >
+              <img
+                src="./images/fruit-banana.jpg"
+                alt="Banana"
+                height="240"
+                width="240"
+                class="slide__image"
+              />
+            </div>
+
+            <div
+              id="tabpanel-4"
+              role="tabpanel"
+              aria-roledescription="slide"
+              aria-label="4 of 4"
+              aria-hidden="true"
+              class="slide"
+            >
+              <img
+                src="./images/fruit-cherry.jpg"
+                alt="Cherry"
+                height="240"
+                width="240"
+                class="slide__image"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

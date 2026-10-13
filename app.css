@@ -1,0 +1,215 @@
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+}
+
+@layer base {
+  :root {
+    --h-blue: 215;
+    --s-blue: 90;
+
+    --h-red: 345;
+    --s-red: 80;
+
+    --h-green: 105;
+    --s-green: 75;
+
+    --h-yellow: 40;
+    --s-yellow: 100;
+
+    --h-info: 215;
+    --s-info: 90;
+
+    --h-error: 345;
+    --s-error: 80;
+
+    --h-success: 105;
+    --s-success: 75;
+
+    --h-warning: 40;
+    --s-warning: 100;
+
+    --font-family: "Geist", sans-serif;
+    --line-height: 1.5;
+    --line-height-heading: 1.2;
+
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-md: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 1.75rem;
+    --font-size-4xl: 2rem;
+    --font-size-5xl: 2.25rem;
+  }
+
+  html {
+    font-family: var(--font-family);
+    font-size: var(--font-size-md);
+    line-height: var(--line-height);
+  }
+
+  body {
+    background-color: hsl(0 0 90);
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+}
+
+@layer components {
+  .carousel {
+    position: relative;
+    padding: 1.5rem;
+    max-width: fit-content;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: white;
+  }
+
+  .carousel__stop-button {
+    z-index: 10;
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    width: 2rem;
+    height: 2rem;
+    display: grid;
+    place-content: center;
+    border: 2px solid hsl(0 0 80);
+    border-radius: 0.25rem;
+    background-color: hsl(0 0 90);
+
+    &:hover {
+      background-color: hsl(0 0 85);
+    }
+
+    &:active {
+      background-color: hsl(0 0 80);
+    }
+
+    &:focus {
+      outline: 2px solid hsl(var(--h-blue) var(--s-blue) 50);
+      outline-offset: 2px;
+    }
+  }
+
+  [data-stopped="false"] :where(#icon-play) {
+    display: none;
+  }
+
+  [data-stopped="true"] :where(#icon-pause) {
+    display: none;
+  }
+
+  .tablist {
+    z-index: 10;
+    position: absolute;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    &:focus-within {
+      outline: 2px solid hsl(var(--h-blue) var(--s-blue) 50);
+      outline-offset: 2px;
+    }
+  }
+
+  .tablist__tab {
+    width: 2rem;
+    height: 2rem;
+    display: grid;
+    place-content: center;
+    border: 2px solid hsl(0 0 20);
+    border-radius: 0.25rem;
+    background-color: hsl(0 0 10);
+    color: white;
+
+    &:hover {
+      background-color: hsl(0 0 15);
+    }
+
+    &:active {
+      background-color: hsl(0 0 20);
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .tablist__tab:where([tabindex="-1"]) {
+    border: 2px solid hsl(0 0 80);
+    border-radius: 0.25rem;
+    background-color: hsl(0 0 90);
+    color: black;
+
+    &:hover {
+      background-color: hsl(0 0 85);
+    }
+
+    &:active {
+      background-color: hsl(0 0 80);
+    }
+  }
+
+  .slides-container {
+    width: 240px;
+    overflow-x: hidden;
+  }
+
+  .slides {
+    display: flex;
+    transition: transform 200ms ease-out;
+
+    @media (prefers-reduced-motion: reduce) {
+      transition-duration: 0ms;
+    }
+  }
+
+  [data-current="1"] :where(.slides) {
+    transform: translateX(0%);
+  }
+
+  [data-current="2"] :where(.slides) {
+    transform: translateX(-100%);
+  }
+
+  [data-current="3"] :where(.slides) {
+    transform: translateX(-200%);
+  }
+
+  [data-current="4"] :where(.slides) {
+    transform: translateX(-300%);
+  }
+
+  .slide {
+    flex-shrink: 0;
+  }
+}
+
+@layer utilities {
+  .container {
+    min-height: 100dvh;
+    margin-inline: auto;
+    max-inline-size: 100dvw;
+    padding: 1rem;
+    display: grid;
+    place-content: center;
+
+    @media (width > 480px) {
+      max-inline-size: 80dvw;
+    }
+  }
+}
