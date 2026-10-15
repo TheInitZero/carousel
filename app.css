@@ -22,17 +22,17 @@
     --h-yellow: 40;
     --s-yellow: 100;
 
-    --h-info: 215;
-    --s-info: 90;
+    --h-info: var(--h-blue);
+    --s-info: var(--s-blue);
 
-    --h-error: 345;
-    --s-error: 80;
+    --h-error: var(--h-red);
+    --s-error: var(--s-red);
 
-    --h-success: 105;
-    --s-success: 75;
+    --h-success: var(--h-green);
+    --s-success: var(--s-green);
 
-    --h-warning: 40;
-    --s-warning: 100;
+    --h-warning: var(--h-yellow);
+    --s-warning: var(--s-yellow);
 
     --font-family: "Geist", sans-serif;
     --line-height: 1.5;
