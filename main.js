@@ -160,7 +160,7 @@ actor.subscribe(function (snapshot) {
       $tab.setAttribute("tabindex", "-1");
     }
 
-    $tabpanel.ariaHidden = isActive ? "false" : "true";
+    $tabpanel.inert = !isActive;
   }
 });
 
